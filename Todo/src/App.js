@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       todo: ToDoData
     }
-    this.deleteTasks = this.deleteTasks.bind(this);
+    // this.deleteTasks = this.deleteTasks.bind(this);
   }
     toggleItem = id => {
       console.log(id);
@@ -48,12 +48,13 @@ class App extends React.Component {
 
 
 
-  deleteTasks = (index) => {
-    const tasks = this.state.todo
-    tasks.splice(index, 1);
-    this.setState({ tasks })
-    
-  }
+  deleteTasks = (tasksId) => {
+  
+    this.setState({
+      removeItems: this.state.todo.filter(item => item.id !== tasksId
+  )}
+  )}
+
 
    
   // you will need a place to store your state in this component.
